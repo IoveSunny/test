@@ -9,27 +9,27 @@ eth1      Link encap:Ethernet  HWaddr c0:18:85:23:c9:85
           inet addr:192.168.1.198  Bcast:192.168.1.255  Mask:255.255.255.0
           inet6 addr: fe80::c218:85ff:fe23:c985/64 Scope:Link
           UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
-          RX packets:2926 errors:9 dropped:0 overruns:0 frame:92911
-          TX packets:3724 errors:11 dropped:0 overruns:0 carrier:0
+          RX packets:3822 errors:18 dropped:0 overruns:0 frame:175078
+          TX packets:4917 errors:11 dropped:0 overruns:0 carrier:0
           collisions:0 txqueuelen:1000 
-          RX bytes:1670445 (1.6 MB)  TX bytes:631664 (631.6 KB)
+          RX bytes:2019773 (2.0 MB)  TX bytes:851248 (851.2 KB)
           Interrupt:17 
 
 lo        Link encap:Local Loopback  
           inet addr:127.0.0.1  Mask:255.0.0.0
           inet6 addr: ::1/128 Scope:Host
           UP LOOPBACK RUNNING  MTU:65536  Metric:1
-          RX packets:976 errors:0 dropped:0 overruns:0 frame:0
-          TX packets:976 errors:0 dropped:0 overruns:0 carrier:0
+          RX packets:1120 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:1120 errors:0 dropped:0 overruns:0 carrier:0
           collisions:0 txqueuelen:0 
-          RX bytes:154548 (154.5 KB)  TX bytes:154548 (154.5 KB)
+          RX bytes:175294 (175.2 KB)  TX bytes:175294 (175.2 KB)
 
 vmnet1    Link encap:Ethernet  HWaddr 00:50:56:c0:00:01  
           inet addr:172.16.4.1  Bcast:172.16.4.255  Mask:255.255.255.0
           inet6 addr: fe80::250:56ff:fec0:1/64 Scope:Link
           UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
           RX packets:0 errors:0 dropped:0 overruns:0 frame:0
-          TX packets:55 errors:0 dropped:0 overruns:0 carrier:0
+          TX packets:57 errors:0 dropped:0 overruns:0 carrier:0
           collisions:0 txqueuelen:1000 
           RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
 
@@ -38,7 +38,7 @@ vmnet8    Link encap:Ethernet  HWaddr 00:50:56:c0:00:08
           inet6 addr: fe80::250:56ff:fec0:8/64 Scope:Link
           UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
           RX packets:0 errors:0 dropped:0 overruns:0 frame:0
-          TX packets:54 errors:0 dropped:0 overruns:0 carrier:0
+          TX packets:56 errors:0 dropped:0 overruns:0 carrier:0
           collisions:0 txqueuelen:1000 
           RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
 
