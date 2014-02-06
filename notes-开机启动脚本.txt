@@ -1,0 +1,36 @@
+#
+
+1、编辑/etc/rc.local
+	如：sudo vim /etc/rc.local
+在 exit 0之前添加脚本代码
+	如：sh /ect/ifconfig.sh
+
+rc.local:
+  1 #!/bin/sh -e
+  2 #
+  3 # rc.local
+  4 #
+  5 # This script is executed at the end of each multiuser runlevel.
+  6 # Make sure that the script will "exit 0" on success or any other
+  7 # value on error.
+  8 #
+  9 # In order to enable or disable this script just change the execution
+ 10 # bits.
+ 11 #
+ 12 # By default this script does nothing.
+ 13 
+ 14 sh /etc/ifconfig.sh
+ 15 
+ 16 exit 0
+
+
+2.在/etc/目录下创建脚本文件(必须在该目录下，其他目录没成功，不知道为什么，希望看见的大神解答下，谢谢)
+	如：sudo vim ifconfig.sh
+  1 
+  2 cd /home/sunny/test/ && \
+  3 ifconfig > README && \
+  4 git add README && \
+  5 git commit -m "test2" && \
+  6 git push -u origin master
+
+                               

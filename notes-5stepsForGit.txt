@@ -1,0 +1,28 @@
+第一次使用：
+1、产生验证公钥：
+	cd ~/.ssh
+	ssh-keygen -t rsa -c "example@mail.com"
+	将 *.pub 文件的内容保存到github.com中的ssh-key
+	验证：ssh -T git@github.com
+	（在github.com中创建repository）
+
+2、cd ~/test/ (任意你的项目目录)
+git init
+git add README.rd	(假设README.rd已经存在)
+git commit -m "备注"
+git remote add origin git@github.com:IoveSunny/test.git
+git push -u origin master
+
+第二次以后使用只需要：
+	git add 新文件或改动文件
+	git commit -m "备注"
+	git push -u origin master
+
+
+其他学习：
+	1、一个很不错的在线教学git，是一个练习git命令, GitHub官方的互动教程：
+		http://try.github.io
+
+	2、Pro Git （深入学习Git）
+		http://git-scm.com/book/zh/
+	
