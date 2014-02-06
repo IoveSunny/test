@@ -1,0 +1,1059 @@
+1、bif -- build in function
+
+2、列出bif : dir(__builtins__)，大部分小写字母开头的是bif
+
+3、temp = input("可显示参数:") 注意：raw_input()
+
+4、查找bif的功能：help(bif)  例如：help(input)
+
+5、原始字符创 str = r'C:\now' （相当于转义字符）
+
+6、三重引号字符串："""内容""" （自动补全换行符）
+
+7、import random
+	random.randint(start, end) 例如random.randint(1,10)
+
+8、type(object)
+	bool isinstance(object, int[str, float, ])
+
+9、assert 的作用是什么？
+  
+assert这个关键字我们称之为“断言”，当这个关键字后边的条件为假的时候，程序自动崩溃并抛出AssertionError的异常。
+什么情况下我们会需要这样的代码呢？当我们在测试程序的时候就很好用，因为与其让错误的条件导致程序今后莫名其妙地崩溃，不如在错误条件出现的那一瞬间我们实现“自爆”。
+一般来说我们可以用Ta再程序中置入检查点，当需要确保程序中的某个条件一定为真才能让程序正常工作的话，assert关键字就非常有用了。
+
+10、假设有 x = 1，y = 2，z = 3，请问如何快速将三个变量的值互相交换？
+  	答：x, y, z = z, y, x
+
+11、Python 有一个成员资格运算符：in，用于检查一个值是否在序列中，如果在序列中返回 True，否则返回 False。
+
+12、small = x if (x < y and x < z) else (y if y < z else z)
+
+13、print(a, b, c)
+	print(string1 + string2)
+
+14、for  目标 in 表达式:
+	循环体 
+
+	for i in "fishc":
+		print(i, end=' ')
+
+	
+	member = ["小甲鱼","黑客"]
+	for each in member:
+		print(each, len(each))
+
+15、range(5), range(2,5), range(2, 10, 2)
+	range(start, stop, step)
+
+16、member = ["小甲鱼","黑客"]
+	member = []
+
+17、member.append('甲鱼')  不等于  member.append(['甲鱼'])
+
+18、member.extend(['甲鱼', '大傻'])
+
+19、member.insert(位置, 元素)
+
+20、member.remove('huangjinhua')
+	del member[2]
+	member.pop(0)
+	member.pop()
+	member[1:3]指member[1]和member[2]
+	member[:3]指member(0-2)
+	member[1:]指从1开始
+	member[:]指member的拷贝:member2=member[:]
+
+21、list1 = [123,[456, 789]]
+	123 in list1	(True)
+	456 in list1	(False)
+	[456, 789] in list1	(True)
+	456 in list1[1]	(True)
+
+22、dir(list)
+	listobject.count(元素)：返回元素在列表中出现的次数
+	listobject.index(元素):返回元素第一次出现位置
+	listobject.index(元素,start,end):start\end是指索引，如3,8, 指搜索范围
+
+	listobject.reverse():反转
+	listobject.sort():从小到大
+	listobject.sort(reverse=False):默认参数
+	listobject.sort(reverse=True):从大到小
+
+	list1 = list2[:] :复制, == list1 = list2.copy()
+	list1 = list2 :别名,改变其中一个，另一个同样改变，实际上是同一个东西,相当于C改变地址指向的值	
+	
+27、[i*i for i in range(6)]  :[0,1,4,9,16,25]
+	== [i**2 for i in range(10)]
+	== list1 = []
+	   for i in range(10):
+		list1.append(x**2)
+
+28、list1 = [(x, y) for x in range(10) for y in range(10) if x%2==0 if y%2!=0]
+
+29、list2 = list1.copy()
+	== list2 = list1[:]
+
+30、list.clear()
+
+31、list1 = [(x, y) for x in range(10) for y in range(10) if x%2==0 if y%2!=0]
+	相当于：
+	list1 = []
+	
+for x in ragne(10):
+		for y in range(10):
+			if x%2 == 0:
+ 
+				if y%2 != 0:
+					list1.append((x, y))
+
+32、>>> list3 = [name + '：' + slogan[2:] for slogan in list1 for name in list2 if slogan[0] == name[0]]
+
+33、tuple元组
+	temp = ()
+	temp = (1,) 不等于temp(1),前者tuple,后者int
+
+	8*(8)  == 64
+	2*(2,) == (2,2,2,2)
+
+34、temp = ("小甲鱼","黑夜","迷途","小布丁")
+	temp = temp[:2] + ("宜静",) + temp[2:]#此句执行后,temp 指向 新对象, 就对象找不到了，将被回收
+  == temp = ("小甲鱼","黑夜","宜静","迷途","小布丁")
+
+35、del temp :temp为tuple类型
+
+36、str1 = "I love fishc.com"
+	str1 = str1[:6]+"要添加\插入的字符串"+str1[6:]
+	修改则要过滤修改的位置
+
+37、序列：列表、元组、字符串
+
+38、strobject.capitalize():把字符串的第一个字符改写为大写
+	casefolf():吧整个字符的所有字符串改为小写
+	center(width):将字符串居中,并使用空格填充至长度width的新字符串
+	count(sub[, start[, end]]):返回在字符串里出此案的次数
+	encode(encoding='utf-8', errors='strict'):以endcoding制定的编码格式对字符串进行编码
+	endswith(sub[,start[,end]]):检查字符串是否以sub子字符串结束，如果是返回True，否则返回False。start和end参数表示范围，可选。
+	expandtabs([tabsize=8]) :把字符串中的tab符号（\t）转换为空格，如不指定参数，默认的空格数是tabsize=8。
+	find(sub[,start[,end]]):检测sub是否包含在字符串中，如果有则返回索引值，否则返回-1，start和end参数表示范围，可选。
+	rfind(sub[,start[,end]]) #类似于find()方法，不过是从右边开始查找。
+	index(sub[,start[,end]]):  跟find方法一样，不过如果sub不在string中会产生一个异常。
+	rindex(sub[,start[,end]]) #类似于index()方法，不过是从右边开始。
+	isalnum():如果字符串至少有一个字符并且所有字符都是字母或数字则返回True，否则返回False。
+	isalpha():如果字符串至少有一个字符并且所有字符都是字母则返回True，否则返回False。
+	isdecimal(): 如果字符串只包含十进制数字则返回True，否则返回False。
+	isdigit() #如果字符串只包含数字则返回True，否则返回False.
+	islower() #如果字符串中至少包含一个区分大小写的字符，并且这些字符都是小写，则返回True，否则返回False。
+	isupper() #如果字符串中至少包含一个区分大小写的字符，并且这些字符都是大写，则返回True，否则返回False。
+	isnumeric() #如果字符串中只包含数字字符，则返回True，否则返回False。
+	isspace() # 如果字符串中只包含空格，则返回True，否则返回False。
+	istitle() #  如果字符串是标题化（所有的单词都是以大写开始，其余字母均小写），则返回True，否则返回False。
+	join(sub) #以字符串作为分隔符，插入到sub中所有的字符之间。
+	ljust(width) #返回一个左对齐的字符串，并使用空格填充至长度为width的新字符串。
+	rjust(width) #
+	lower() #转换字符串中所有大写字符为小写。
+	upper() #
+	partition(sub) #找到子字符串sub，把字符串分成一个3元组（pre_sub,sub,fol_sub），如果字符串中不包含sub则返回(‘原字符串’, ’’, ’’)
+	rpartition(sub)	 #
+	replace(old,new[,count]) # 把字符串中的old子字符串替换成new子字符串，如果count指定，则替换不超过count次。
+	strip([chars]) #删除字符串前边和后边所有的空格，chars参数可以定制删除的字符，可选。
+	rstrip() #删除字符串末尾的空格。
+	split(sep=None, maxsplit=-1) #不带参数默认是以空格为分隔符切片字符串，如果maxsplit参数有设置，则仅分隔maxsplit个子字符串，返回切片后的子字符串拼接的列表。
+	swapcase() # 翻转字符串中的大小写。
+	title() #返回标题化（所有的单词都是以大写开始，其余字母均小写）的字符串。
+	zfill(width) #返回长度为width的字符串，原字符串右对齐，前边用0填充
+
+
+39、"{0} love {1}.{2}".format("I", "Fishc", "com")
+
+	"{a} love {b}.{c}".format(a="I", b="Fishc", c="com")
+	"{0} love {b}.{c}".format("I", b="Fishc", c="com")
+
+40、转义花括号:"{{0}}".format("打印花括号")
+		"{0}".format("不打印花括号")
+
+41、"{0:.1f}{1}".format(27.689, "GB")
+
+42、格式化字符串%:
+	"%c" % 97
+	"%c %c %c" % (97, 98, 99) //元组（）
+
+	temp = "i love you"
+	"%s" % temp
+
+	'%d + %d = %d' % (4, 5, 4+5)
+	
+	'%o' % 10
+
+	'%x' % 10
+	'%X' % 10
+
+	定点数 :'%f' % 1.234 
+		'%.2f' % 1.234
+	科学计数法： '%e' % 1.234
+			'%E' % 1.234
+	智能根据大小使用%f或%e: '%g' % 1.234
+				'%G' % 1.234
+
+43、
+字符串格式化符号含义
+  
+   符   号
+   说     明
+     %c
+   格式化字符及其ASCII码
+     %s
+   格式化字符串
+     %d
+   格式化整数
+     %o
+   格式化无符号八进制数
+     %x
+   格式化无符号十六进制数
+     %X
+   格式化无符号十六进制数（大写）
+     %f
+   格式化定点数，可指定小数点后的精度
+     %e
+   用科学计数法格式化定点数
+     %E
+   作用同%e，用科学计数法格式化定点数
+     %g	   根据值的大小决定使用%f活%e
+     %G
+   作用同%g，根据值的大小决定使用%f或者%E
+  
+  
+44、格式化操作符辅助指令
+                                                 
+   符   号
+    说     明
+     	m.n	m是显示的最小总宽度，n是小数点后的位数 :"%10d" % 5
+      
+	-	用于左对齐 :"%-10d" % 5
+      
+	+	在正数前面显示加号（+）
+       
+	#	在八进制数前面显示 '0o'，在十六进制数前面显示 '0x' 或 '0X' : "%#o" % 10
+       
+	0	显示的数字前面填充 '0' 取代空格 : "%010d" % 5
+
+
+45、字符串转义字符含义
+  
+   符   号
+    说     明
+       \'
+    单引号
+       \"
+    双引号
+       \a
+    发出系统响铃声
+       \b
+    退格符
+       \n
+    换行符
+       \t
+    横向制表符（TAB）
+       \v
+    纵向制表符
+       \r
+    回车符
+       \f
+    换页符
+       \o
+    八进制数代表的字符
+       \x
+    十六进制数代表的字符
+       \0
+    表示一个空字符
+       \\
+    反斜杠
+
+46、file = open("C:\\windows\\temp\\readme.txt", "r")
+	file1 = open(r'C:\windows\temp\readme.txt', 'r')
+
+47、. 有字符串：str1 = '<a href="http://www.fishc.com/dvd" target="_blank">鱼C资源打包</a>'，请问如何提取出子字符串：'www.fishc.com'
+	>>> str1[-45:-32] 或 >>> str1[16:29]
+
+48、>>> str1[20:-36]：显示fishc (负号只表示从尾部开始倒着数)
+
+49、 据说只有智商高于150的鱼油才能解开这个字符串（还原为有意义的字符串）：str1 = 'i2sl54ovvvb4e3bferi32s56h;$c43.sfc67o0cm99'
+	>>> str1[::3]
+
+50、>>> p = dict([('clock',12),('table', 100),('xiao', 100)])
+    >>> p
+	{'clock': 12, 'table': 100, 'xiao': 100}
+
+51、函数名称只是一个变量，一个对象。记得‘一切都是对象’。所以可以向普通对象一样，把函数名称赋值给另一个变量。myadd = add,这点有点像函数指针。术语叫function alias,函数别名.
+
+52、buildin functions:
+	1、将ASCII码转换为对应的字符 chr(90) == 'Z'
+	   将字符转换为对应的ASCII码 ord('Z') == 90
+
+	2、str, dict, tuple, list
+	
+	3、cmp(a,b)，divmod(a,b)
+
+	4、hex(a), oct(a)
+
+	5、int, long, float
+
+	6、input, raw_input
+
+	7、len, max, min
+
+	8、filter, map, sum, zip, reduce
+
+	9、pow(a,b) == a**b,  abs, all, any
+
+	10、range, xrange, round
+
+53、源代码：python 源文件.py
+
+	字节代码：-Python源文件经编译后生成的扩展为“pyc”的文件;
+		  -编译方法:import py_compile
+			    py_compile.compile("hello.py")
+
+	优化代码
+	-经过优化的源文件，扩展名为“.pyo”
+	-python -O -m py_compile hello.py
+
+54、id(a):查看a变量的地址
+
+55、1<<1:移位
+	a << b :将a左移b位
+
+56、>>> nail = """Now:
+you know
+you are nothing
+"""
+>>> nail
+'Now:\nyou know\nyou are nothing\n'
+>>> print nail
+Now:
+you know
+you are nothing
+
+57、>>> m = "1234567890"
+>>> k=2
+>>> l=9
+>>> n=2
+>>> m[k:l:n]
+'3579'
+>>> m[::3]
+'1470'
+	# 切片 ：起始k,终止l,每n个取一个
+
+58、m[-4:-2:-1] # 从后往前一个一个地取
+
+59、重复序列元素："#"*5 == "#####"
+
+60、str1 = "abc"
+	"a" in str1 :成员操作符 ( not in)
+
+61、str2 = "12345" #用到max,min时，实际上这里序列str2被当作迭代器
+	max(str2)
+	min(str2)
+
+62、cmp(a,b):比较两个序列 ：== 0
+			     > 1
+			     < -1
+
+63、单一元素元组：s = (2,)#注意要逗号, 区别s=(2)
+
+64、>>> t = ("nobody", 21, "female")
+>>> name,age,gender=t
+>>> name
+'nobody'
+>>> age
+21
+>>> gender
+'female'
+# a,b,c=1,2,3  == a,b,c=(1,2,3) 其实一样的，前者不规范，都是元组
+
+65、序列（元组，列表，字符串）均可以切片
+
+66、列表(list)操作:
+	-取值
+		切片和索引
+		list[]
+	-添加
+		list.append()
+	-删除
+		del(list[])
+		list.remove(list[])
+	-修改
+		list[] = x
+	-查找
+		var in list
+
+67、help(list.append)
+
+68、>>> t = ['name', 'age', 'gender']
+>>> t2 = ['no', 30, 'female']
+>>> zip(t, t2)
+[('name', 'no'), ('age', 30), ('gender', 'female')]
+
+69、字典是python中唯一的映射类型(哈希表)
+	字典是可变的，但是字典的键必须使用不可变对象，并且一个字典中可以使用不同类型的键值
+	keys()或values()返回键列表或值列表
+	items()返回包含键值对的元组
+
+70、创建字典：
+	-{} 例、dic={0:0, 1:1, 2:2}
+	-使用工厂方法dir()
+		例: fdict=dict(['x',1], ['y',2])
+	-内建方法: fromkeys(), 字典中的元素具有相同的值,
+		默认为None
+		例: ddict = {}.fromkeys(('x','y'), -1)
+
+71、访问字典中的值：
+	-循环遍历:
+		例: for key in dict1.keys():
+	-使用迭代器:
+		for key in dict1:
+
+72、字典的更新和删除:
+	-直接用键值访问更新:内奸的update()方法可以将整个字典的内容拷贝到另一个字典中
+	-del dict1['a']删除字典中键值为a的元素
+		dict1.pop('a')删除并且返回键值为'a'的元素
+		dict1.clear()删除字典中的所有元素
+		del dict1 删除整个字典
+
+73、字典增加：
+	dict1['tel'] = 12343643
+
+74、dic.get(3[, 'error'])
+
+75、>>> a = xrange(10) #产生迭代器
+>>> a
+xrange(10)
+>>> for k in a:
+	print k
+
+76、for x in dict1:
+	print x	#键 for x in dict1.keys()
+	print dict1[x] #值 for x in dict1.values()
+
+	for k, v in dict1.items()
+		print k
+		print v
+	else:
+		print "ending" #正常结束才会执行else
+
+77、函数传递实参、形参；默认形参；参数位置对应
+	
+78、linux中文(utf8)编码编码（windows :gbk）：#coding:utf8
+	  #coding=utf8
+	  #encoding:utf8
+	  #encoding=utf8
+	  #-*- coding:utf8 -*-
+
+79、局部变量和全局变量：
+	全局变量和局部变量名相同（意义完全不同）时，全局变量不能改变局部变量的值
+	用global a强制将局部变量声明为全局变量
+
+80、return 返回值；函数调用后默认返回None
+
+81、True if x > y else false
+	1 if x > y else (0 if x==y else -1)
+
+82、def f(x,y)
+	print x, y
+    t = (1,2)	# 元组
+    f(*t) # 元组传值
+    dict1 = {'a':1, 'b':2}
+    f(**dict1) #字典传值
+
+83、函数处理多余的参数：
+	def fun(*args, **kw)
+
+
+84、lambda :
+	匿名函数-lambda函数是一种快速定义但行的最小函数，是从lisp借用来的，可以用在任何需要函数的地方
+		例：def f(x,y):return x*y  ==  g=lambda x,y:x*y #lambda返回一个函数对象
+			f(x,y) == g(x,y)
+
+85、reduce为逐次操作list里的每项，接收参数为两个，最后返回一个结果
+	>>> def myadd(x,y):
+		return x+y
+	>>> sum = reduce(myadd,(1,2,3))
+	>>> sum
+	6
+	>>>sum = reduce(lambda x,y:x+y,[1,2,3])
+
+86、 >>> a = list("love")
+>>> a
+['l', 'o', 'v', 'e']
+>>> reduce(lambda x,y:x+y, a)
+'love'
+>>> 
+
+87、switch语句:python无switch语句,但是python 可以通过字典实现switch语句的功能
+	实现方法：
+		-首先，定义一个字典
+		-其次，调用字典的get()获取相应表达式
+		例：{1:case1,2:case2}.get(x, lambda *arg, **key:)()
+
+	#!/usr/bin/python
+#coding:utf-8
+
+from __future__ import division #自动使用浮点数除法 5/2=2.5
+
+x = 1
+y = 2
+operator = {
+	'+':x+y, 
+	'-':x-y, 
+	'*':x*y, 
+	'/':x/y
+	}
+
+print operator.get("/")
+
+
+88、内置函数	
+	divmod(x,y) #求两个数的的商和模,(x/y, x%y)
+	pow(x,y) == x**y #pow(x,y, z) == x**y %z
+	round() #return float
+	callable(function object) :测试函数是否能被调研
+	isinstance()
+	cmp()
+	range() 、 xrange()
+	
+	type()
+	int()
+	long()
+	float()
+	complex()
+
+	str()
+	list()
+	tuple()
+	hex()
+	oct()
+	chr() #ASCII
+	ord() #ASCII
+
+89、str.capitalize()
+	str.replace(old, new[, count])
+	str.split(sub[,count]) #切割 
+		例:>>>ip = "192.168.1.123"
+		   >>>ip.split('.')
+		   ['192', '168', '1', '123']
+
+	>>> import string
+	>>> string.replace(ip, '1', 'x')
+	'x92.x68.x.x'
+
+90、序列处理函数:
+	filter() #过滤
+	zip()
+	map()
+	reduce()
+	例：>>> def f(x):
+		if x>3:
+			return True
+
+	    >>> filter(f, [1,2,3,4,5,6])
+	    [4, 5, 6]
+	    >>> 
+	>>> filter(lambda x:x>3, [1,2,3,4,5,6])
+	[4, 5, 6]
+	>>> name = ['huang', 'gao', 'no']
+	>>> age = [21,20,00]
+	>>> tel = [661503, 621688, 911]
+	>>> reduce(zip, (name, age, tel))
+	[(('huang', 21), 661503), (('gao', 20), 621688), (('no', 0), 911)]
+	>>> reduce(zip, name)
+	[(('h', 'g'), 'n'), (('u', 'a'), 'o')]
+	>>> zip(name, age, tel)
+	[('huang', 21, 661503), ('gao', 20, 621688), ('no', 0, 911)]
+	>>> map(None, name, age, tel)
+	[('huang', 21, 661503), ('gao', 20, 621688), ('no', 0, 911)]
+	>>> test = ['a', 'b']
+	>>> zip(name, age, tel, test)
+	[('huang', 21, 661503, 'a'), ('gao', 20, 621688, 'b')]
+	>>> map(None, name, age, tel, test)
+	[('huang', 21, 661503, 'a'), ('gao', 20, 621688, 'b'), ('no', 0, 911, None)]
+	>>> a = [1,3,5]
+	>>> b = [2,4,6]
+	>>> map(None,a,b)
+	[(1, 2), (3, 4), (5, 6)]
+	>>> map(lambda x,y:x*y,a,b)
+	[2, 12, 30]
+	>>> reduce(lambda x,y:x*y, range(1,6)) #阶乘	
+	>>> reduce(lambda x,y:x*y, xrange(1,6))
+
+91、模块module:
+	if __name__ == __main__   # __main__ 、 cal
+		operator(1, '/', 3)
+
+92、包(package):
+	-建名字为包名字（packagename）的文件夹
+	-在该文件家下将一个__init__.py文件 #__init__.py包含包信息
+	-根据需要在该文件夹下存放脚本文件、已编译扩展及子包
+	-import packagename.m1, packagename.m2
+
+93、>>> import os as pwd
+>>> pwd.getcwd()
+'/home/me/'
+>>> from os import getcwd
+>>> getcwd()
+'/home/me/'
+
+94、re module:（正则表达式）：
+	元字符：^  $  {} [] \ * + -
+	s = r"^abc":以abc开头
+	s = r"a[bc]":含ab或ac
+	s = r"a[^bc]"#不含ab或ac
+	s = r"a[bc^]"#元字符不起作用,取含ab或ac或a^
+	s = r"a[bc$]" #同上
+	s = r"abc$" #以abc结尾
+	
+95、s = r"^abc"  t = "^abc^abc"
+    s = r"\^abc" t = "^abc ^abc" #转义字符\
+	转义字符:
+	   s = r"\d" #\d单个数字
+	   re.findall(s, "123456789")
+
+	\d #匹配任何十进制数，相当于[0-9]
+	\D #匹配任何非数字字符，相当于[^0-9]
+	\s #匹配任何空白字符，相当于[\t\n\r\f\v]
+	\S #匹配任何非空白字符，相当于[^\t\n\r\f\v]
+	\w #匹配任何字母数字字符：相当于类[a-zA-Z0-9]
+	\W #匹配任何非字母数字字符：相当于[^a-zA-Z0-9]
+
+	
+96、r = r"^010-\d{8}" #匹配八+3位号码 #{8}指重复八次
+	
+97、重复-正则表达式的第一个功能是能匹配不定长得字符集，
+	-另一个功能是可以指定正则表达式的一部分重复次数
+	
+	* #指定前一个字符可以被匹配零次或多次，而不是只有一次。
+	  #匹配引擎会试着重复尽可能多的次数(不能超过整数界定范围, 20亿)
+	 例如:a[bcd]*b -- "abcbd"
+
+	+ #表示匹配一或更多次
+	  #注意 * 和 + 之间的不同，*匹配零次或更多次，所以可以更本不出现，而+则要求至少出现一次
+
+	？#匹配一次或零次； 你可以认为它用于标事物是可选的
+
+	例如：r = r"010-?\d{8}$"
+		r = r"ab+" #贪婪模式，最大匹配
+		r = r"ab+?" #最小匹配 
+	{m,n} #至少重复m次，至多重复n次
+     	{0，} == *
+	{1，} == +
+	{0，1} == ？
+
+98、类和对象 ： 类:是对事物的抽象，对象是累的一个实例
+ 	python类定义
+	类的属性
+	类的方法
+
+99、python类的定义：
+	使用class关键字定义一个类，并且类名首字母要大写；
+	当程序员需要创建的类型不能用简单类型表示额时候就需要创建类；
+	类把需要的变量和函数组合在一起，这种包含也称之为“封装”
+
+100、python类的结构：
+	class 类名（首字母大写）:
+		成员变量
+		成员函数
+
+101、类的方法中至少有一个参数self
+
+102、对象的创建：
+	创建对象的过程称之为实例化；当对象被创建后，包含三个属性：对象的句柄、属性和方法
+		句柄用于区分不同的对象
+		对象的属性和方法与类中成员变量和成员函数对应
+	if __main__== "__main__":
+		myClass1 = MyClass #创建类的一个实例对象
+
+103、对实例的对象的属性重新赋值；对实例的对象添加属性
+
+104、python对象的体系结构：
+	-经典对象：内部的属性和方法组成，属性可以是数据类型也可以是函数类型。如属性为函数则该属性就是一个方法。
+		类的内部方法-python类当中提供了一些内部方法名，方法名由前后两个下划线加字母组成。例如python的
+	      构造函数__init__。（init前后均为两个下划线）
+	-新型对象：定义新型对象，必须继承object方法 class_name(object)
+		新型对象提供了对类方法和静态方法的支持。
+
+105、类的属性：
+	  类由属性和方法组成，类的属性是对数据的封装，类的方法则是对类的行为的封装。类的属性按
+	使用范围分为公有属性和私有熟悉，类的属性范围取决于属性的名称。
+		-公有属性：就是在类中和类外调用的属性
+		-私有属性：不能被类以外的函数调用
+			（可以通过instance.__classname__attribute方式访问，但只用于调试程序）
+				定义方式：以“__”双下划线开始的成员变量就是私有属性，否则为公有属性
+		-内置属性：由系统在定义类的时候默认添加的，由前后两个下划线构成
+			__dict__,__module__
+
+106、Python的属性按类别分为实例属性（对象属性）和静态属性（类属性）两种：
+	实例属性：是以self作为前缀的属性，实例属性定义在__init__方法中。如果__init__中德变量没有self,则变量只是一个普通的局部变量.
+		例如：
+		class Myclass:
+			var1 = 0	#类属性
+			def __init__(self):
+				self.var2 = 0 #实例属性
+				Vars3 = 0 	#局部变量
+	类的属性：可以被类，以及实例对象访问，定义在类中的变量都是类的外部属性不能直接访问私有属性,私有属性之你呢个被类本身访问，例如：
+		class Myclass():
+			var1 = "类属性，也叫静态属性"
+			__var2 = "类的私有属性"
+			def __init__(self):
+				self.var2 = "var2是实例的属性"
+				self.__var3 = "实例的私有属性"
+				var4 = "简单变量，非属性，作用域只在函数体内"
+
+107、方法的定义：
+	和函数定义一样，但需要self作为第一个参数
+     类的方法分为：公有方法和私有方法
+	私有方法：不能被外部的类和方法调用，但是可背类的内部方法调用。私有方法的定义和私有属性的定义都是一样的。在方法前面加上"__"就可以了
+	类方法（动态的）：被classmethod()函数处理过的函数，能被类所调用，也能被对象所调用（是继承的关系）；
+	静态方法：相当于“全局函数”，可以被类直接调用，可以被所有实例化对象共享，通过staticmethod()定义静态方法没有"self"语句;
+     self参数：
+	用于区分函数和类的方法（必须有一个self），self参数表示指向对象本身
+
+	例如：装饰器:
+		@classmethod	#动态方法（也叫类方法），动态加载所需的类属性和方法
+		def mori(self):
+			print "哈哈"
+		@staticmethod	#静态方法，一掉用就自动加载全部类属性和方法，占有内存大
+		def mr:
+			printf "haha"
+	
+
+108、 Python对象高级
+	-内部类与魔术方法
+
+	内部类：就是在类的内部定义的类，主要目的是为了更好的抽象现实世界，
+	      一般不赞同使用内部类，会使程序结构复杂，但是理解内部类有助于理解模块的调用
+	内部类的实例化方法：
+		方法1、直接使用外部类调用内部类
+			object_name = outclass_name.inclass_name()
+		方法2、先对外部类进行实例化，然后再实例化内部类
+			out_name = outclass_nam()
+			in_name = out_name.inclass_name()
+			in_name.method()
+
+	魔术方法: def __str__(self):
+			return "我是实例化对象"
+
+
+109、构造函数、析构函数：、
+	构造函数：用于初始化类的内部状态，Python提供的构造函数是__init__();
+		__init__()方法是可选的，如果不提供，Python会给出一个默认的__init__()方法;
+		一般对数据的获取需要自定义的get和set方法；
+	析构函数：用于释放对象占用的资源，Python提供的析构函数是__del__();
+		__del__()也是可选的，如果不提供，则Python会在后台提供默认的析构函数；
+		如果要显式的调用析构函数，可以使用del关键字，方式如下：
+			del 对象名
+
+110、垃圾回收机制：
+	  Python采用垃圾回收机制来清理不再使用的对象；Python提供gc模块释放不再使用的对象Python采用"引用计数"的计算方法；来
+	处理回收，即当某个对象在其作用域内不再被其他对象引用的时候，Python就自动清理对象；
+	Python的函数collect()可以一次性手机所有带处理的对象(gc.collect())
+
+111、 常用的内置方法：
+
+
+(Python面向对象——继承、多态、重载)
+112、类间关系：
+	  当多个类被设计完成时，一般都会有类与类之间的相互关系‘
+	  类之间存在继承、组合、依赖等关系；
+	  继承是面向对象的重要特性之一；
+	继承关系：继承是相对于两个类而言的父子关系，子类继承了父类的所有公有属性和方法；
+		继承实现了代码的重用；
+
+113、使用继承：
+	  继承可以重用已经存在的数据和行为，减少代码的重复编写。Python在类名后
+	使用一对括号来表示继承关系，括号中的类即为父类；
+	格式：
+		Class Myclass(ParentClass):
+	注意：
+		如果父类定义了__init__方法,子类必须显示调用父类的__init__方法("BaseClass.__init__(self[,args...])").
+		如果子类需要扩展父类的行为，可以添加__init__方法的参数;
+
+114、Python支持多重继承，即一个类可以继承多个父类；
+	多重继承语法格式：
+		Class_name(parent_class1, parent_class2...)
+	注意：
+	  当父类中出现多个自定义的__init__方法时，多重继承只执行第一个类的__init__方法，其他不执行;
+
+
+
+115、MySQLdb:
+	（1、mysql -uroot -ppasswd
+		2、show database;）
+
+	1、（引入MySQL类）import MySQLdb
+	2、（获取连接对象）conn = MySQLdb.connect(user='root',passwd='',host='127.0.0.1')
+	3、（创建游标的对象）cur = conn.cursor()
+	4、（增加删除数据）conn.select_db('database_name')
+		
+	5、(SQL语句)cur.execute(query语句)
+	query语句：
+		@1、create table tab_name( 
+		    id int(10) not null auto_increment primary key, 
+		    name varchar(40), 
+		    pwd varchar(40) 
+	            ) charset=gb2312; 创建一个名为tab_name的新表
+		@2、create database db_name                //新建一个数据库名称
+drop database da_name                  //删除一个数据库名称
+use db_name                            //打开一个数据库名称    
+create table                           //新建一个表的名称
+primary key                            //设置主键  
+create table new_tb_name select * from table_name //建立一个内容完全相同的表
+drop table tb_name                     //删除一个表名
+
+alter table                            //改变表的结构
+alter table tb_name RENAME new_tb_name //改变表的名称
+alter table tb_name change 字段名 字段名 字段类弄(长度) //修改字段名
+alter table tb_name modify 字段名  字段类弄(长度)       //修改字段类型
+alter table tb_name add column 字段名 字段类型(长度)    //增加一个字段名
+alter table tb_name add index(字段名)                   //增加一个索引
+alter table tb_name add primary key(字段名）            //设主键
+alter table tb_name drop column 字段名                  //删除列
+INSERT INTO语句 //插入数据
+insert into tb_name values(值1，值2，值3...)
+insert into tb_name (字段名1，字段名2，字段名3...)  values (值1，值2，值3...)
+insert into tb_name set 
+                    字段名=值1,
+                    字段名=值2,
+                    字段名=值3
+                     .
+                     .
+                     .
+		UPDATE语句 //修改数据
+		update tb_name set 
+                 	字段名=值1
+                 	字段名=值2,
+                 	字段名=值3
+                     .
+                     .
+                        where (条件)         
+		DELETE语句 //修改数据
+		delete from tb_name where (条件)
+
+		SELECT语句 //查询数据
+		select (条件) from 表名 WHERE (条件)  //select now();
+		select 字段名1,段名2... from 表名 WHERE (条件)
+		select * from 表名
+		select * from 表名 order by 字段名 //排序
+
+
+	6、请注意一定要有conn.commit()这句来提交事务，要不然不能真正的插入数据。
+
+	7、（查询）cur.execute('select * from table_name')
+		cur.fecthone()
+		cur.fetchall()
+		cur.fetchmany(self,size=None)
+		cur.scroll(0,'absolute') #类似移动指针
+	8、查询后中文会正确显示，但在数据库中却是乱码的。注意这里要添加一个参数charset：
+在Python代码 
+conn = MySQLdb.Connect(host='localhost', user='root', passwd='root', db='python') 中加一个属性：
+ 改为：
+conn = MySQLdb.Connect(host='localhost', user='root', passwd='root', db='python',charset='utf8') 
+charset是要跟你数据库的编码一样，如果是数据库是gb2312 ,则写charset='gb2312'。
+	
+	9、我采用的是MySQLdb操作的MYSQL数据库。先来一个简单的例子吧：
+importMySQLdb
+try:
+    conn=MySQLdb.connect(host='localhost',user='root',passwd='root',db='test',port=3306)
+    cur=conn.cursor()
+    cur.execute('select * from user')
+    cur.close()
+    conn.close()
+exceptMySQLdb.Error,e:
+     print"Mysql Error %d: %s"%(e.args[0], e.args[1])
+请注意修改你的数据库，主机名，用户名，密码。
+下面来大致演示一下插入数据，批量插入数据，更新数据的例子吧：
+importMySQLdb
+try:
+    conn=MySQLdb.connect(host='localhost',user='root',passwd='root',port=3306)
+    cur=conn.cursor()
+    cur.execute('create database if not exists python')
+    conn.select_db('python')
+    cur.execute('create table test(id int,info varchar(20))')
+    value=[1,'hi rollen']
+    cur.execute('insert into test values(%s,%s)',value)
+    values=[]
+    fori inrange(20):
+        values.append((i,'hi rollen'+str(i)))
+    cur.executemany('insert into test values(%s,%s)',values)
+    cur.execute('update test set info="I am rollen" where id=3')
+    conn.commit()
+    cur.close()
+    conn.close()
+exceptMySQLdb.Error,e:
+     print"Mysql Error %d: %s"%(e.args[0], e.args[1])
+请注意一定要有conn.commit()这句来提交事务，要不然不能真正的插入数据。
+运行之后我的MySQL数据库的结果就不上图了。
+importMySQLdb
+try:
+    conn=MySQLdb.connect(host='localhost',user='root',passwd='root',port=3306)
+    cur=conn.cursor()
+    conn.select_db('python')
+    count=cur.execute('select * from test')
+    print'there has %s rows record'%count
+    result=cur.fetchone()
+    printresult
+    print'ID: %s info %s'%result
+    results=cur.fetchmany(5)
+    forr inresults:
+        printr
+    print'=='*10
+    cur.scroll(0,mode='absolute')
+    results=cur.fetchall()
+    forr inresults:
+        printr[1]
+    conn.commit()
+    cur.close()
+    conn.close()
+exceptMySQLdb.Error,e:
+     print"Mysql Error %d: %s"%(e.args[0], e.args[1])
+查询后中文会正确显示，但在数据库中却是乱码的。注意这里要添加一个参数charset：
+在Python代码 
+conn = MySQLdb.Connect(host='localhost', user='root', passwd='root', db='python') 中加一个属性：
+ 改为：
+conn = MySQLdb.Connect(host='localhost', user='root', passwd='root', db='python',charset='utf8') 
+charset是要跟你数据库的编码一样，如果是数据库是gb2312 ,则写charset='gb2312'。
+备注：python mysql链接常用函数
+commit() 提交
+rollback() 回滚
+cursor用来执行命令的方法:
+callproc(self, procname, args):用来执行存储过程,接收的参数为存储过程名和参数列表,返回值为受影响的行数
+execute(self, query, args):执行单条sql语句,接收的参数为sql语句本身和使用的参数列表,返回值为受影响的行数
+executemany(self, query, args):执行单挑sql语句,但是重复执行参数列表里的参数,返回值为受影响的行数
+nextset(self):移动到下一个结果集
+
+cursor用来接收返回值的方法:
+fetchall(self):接收全部的返回结果行.
+fetchmany(self, size=None):接收size条返回结果行.如果size的值大于返回的结果行的数量,则会返回cursor.arraysize条数据.
+fetchone(self):返回一条结果行.
+scroll(self, value, mode='relative'):移动指针到某一行.如果mode='relative',则表示从当前所在行移动value条,如果 mode='absolute',则表示从结果集的第一行移动value条.
+
+
+SOCKET SECTION
+116、socket([family[,type[,proto]]]) -> socket object
+	family:socket.AF_INET(ipv4)
+	type: socket.SOCK_STREAM(tcp)
+	      socket.SOCK_DGRAM(udp)
+	proto:
+
+117、socket服务器实现：
+	socket对象:
+	bind()
+	listen()
+	accept()
+	send()
+	recv()
+	close()
+
+118、建立服务器的过程（4部）：
+	1、建立socket对象
+	2、设置socket选项
+	3、绑定到一个端口
+	4、侦听连接
+
+host = '127.0.0.1'
+port = 51423
+
+#Step 1(Create the socket object)
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+#Step 2(Set the socket options)
+s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+
+#Step 3 (Bind to a port and interface)
+s.bind((host, port))
+
+#Step 4(Listen for connections)
+s.listen(5)
+
+119、建立客户端：
+#!/usr/bin/python
+#coding:utf8
+
+import socket
+import time
+
+host = '127.0.0.1'
+port = 9999
+
+c = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+cs = c.connect((host, port))
+print cs
+
+while True:
+    x = raw_input("Me: ")
+    c.send(x)
+    print "Serve: ", c.recv(1024)
+    time.sleep(1)
+
+120、#!/usr/bin/python
+#coding:utf-8
+#Get list of available socket options
+
+import socket
+solist = [x for x in dir(socket) if x.startswith('SO_')]
+solist.sort()
+for x in solist:
+    print x
+
+
+121、hashlib加密
+生成对象: h = hashlib.md5() 或其他方法h = hashlib.sha1()
+加密数据：h.update(data)
+显示密文：h.hexdigest()	
+	
+	
+122、python操作Excel
+	1、保存为csv格式
+	2、import csv
+	   fobj = open("test.csv", "rU")
+	   csvobj = csv.reader(fobj)
+	   for i in csvobj:
+		print i
+
+	3、import csv
+	   reader = csv.reader(file(srcFilePath, "rb"))
+	   for line in reader:
+		#忽略第一行
+		if reader.line_num == 1:
+			continue
+		# line是个list,取得所需的值	
+		type = line[0]
+	   #写入文件
+	   writer = csv.writer(open(targetFile,"wb"),quoting=csv.QUOTE_ALL)
+	   #传入list
+	   writer.writerow(["121", "121"])
+	   #传入二维list
+	   writer.writerows([["121", "121"]])
+
+
+123、增加像linux的选项：optparser_option:
+#!/usr/bin/python
+#coding:utf-8
+
+from optparse import OptionParser
+
+parser = OptionParser()
+
+# -a和--address是选项,dest是字典的key，default为默认值
+parser.add_option("-a", "--address", dest="address",
+                  default="localhost", help="ADDRESS")
+
+parser.add_option("-p", "--port", dest="port",
+                  default="22", help="PORT")
+
+(options, args) = parser.parse_args()
+
+print options
+print args
+	
+
+124、
